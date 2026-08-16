@@ -19,15 +19,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Setup EAS
+      - name: Install EAS CLI
         run: npm install -g eas-cli
 
       - name: Initialize EAS project
-  run: eas init --account mazenshereef --non-interactive
-  env:
-    EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: eas init --account mazenshereef --non-interactive
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
-- name: Build APK
-  run: eas build --platform android --profile preview --non-interactive
-  env:
-    EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      - name: Build APK
+        run: eas build --platform android --profile preview --non-interactive
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
